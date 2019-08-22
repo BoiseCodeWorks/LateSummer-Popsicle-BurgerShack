@@ -8,8 +8,32 @@ namespace BurgerShack.Controllers
     public class BurgersController : ControllerBase
     {
         [HttpGet]
-        public ActionResult<IEnumerable<Burger>> Get(){
-            
+        // TODO Come back to this
+        public ActionResult<IEnumerable<Burger>> Get()
+        {
+            return null;
         }
+
+        [HttpGet("{id}")]
+        // STUB
+        public ActionResult<Burger> Get(int id)
+        {
+            return null;
+        }
+
+        [HttpPost]
+        // STUB
+        public ActionResult<Burger> Post([FromBody] Burger burger)
+        {
+            return null;
+        }
+
+        [HttpDelete("{id}")]
+        // STUB
+        public ActionResult<string> Delete(int id)
+        {
+            return null;
+        }
+
     }
 }
