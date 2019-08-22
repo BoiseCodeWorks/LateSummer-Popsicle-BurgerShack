@@ -22,7 +22,9 @@ namespace BurgerShack.Data
         }
         public Burger CreateBurger(Burger burger)
         {
-            return null;
+ int id = _db.ExecuteScalar<int>(@"INSERT INTO burgers (name, description, price)
+ VALUES (@Name, @Description, @Price); 
+ SELECT LAST_INSERT_ID();", burger);
         }
         public Burger UpdateBurger(Burger burger)
         {
