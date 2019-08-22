@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using BurgerShack.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BurgerShack.Controllers
@@ -24,6 +25,13 @@ namespace BurgerShack.Controllers
         [HttpPost]
         // STUB
         public ActionResult<Burger> Post([FromBody] Burger burger)
+        {
+            return null;
+        }
+
+        [HttpPut("{id}")]
+        // STUB 
+        public ActionResult<Burger> Put([FromBody] Burger burger)
         {
             return null;
         }
