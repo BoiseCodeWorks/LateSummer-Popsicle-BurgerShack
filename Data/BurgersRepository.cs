@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.Data;
+using BurgerShack.Models;
 
 namespace BurgerShack.Data
 {
@@ -7,6 +9,22 @@ namespace BurgerShack.Data
         
         public BurgersRepository(IDbConnection db){
             _db = db;
+        }
+        public IEnumerable<Burger> GetBurgers()
+        {
+          return null;
+        }
+        public Burger GetById(int id)
+        {
+            return null;
+        }
+        public Burger CreateBurger(Burger burger)
+        {
+            return null;
+        }
+        public Burger UpdateBurger()
+        {
+
         }
     }
 }

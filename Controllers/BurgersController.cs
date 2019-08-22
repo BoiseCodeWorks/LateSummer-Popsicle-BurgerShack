@@ -29,7 +29,7 @@ namespace BurgerShack.Controllers
             return null;
         }
 
-        [HttpPut("{id}")]
+        [HttpPut]
         // STUB 
         public ActionResult<Burger> Put([FromBody] Burger burger)
         {
