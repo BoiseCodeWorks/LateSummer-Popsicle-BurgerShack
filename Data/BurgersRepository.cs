@@ -6,25 +6,29 @@ using Dapper;
 
 namespace BurgerShack.Data
 {
-    public class BurgersRepository{
+    public class BurgersRepository
+    {
         private readonly IDbConnection _db;
-        
-        public BurgersRepository(IDbConnection db){
+
+        public BurgersRepository(IDbConnection db)
+        {
             _db = db;
         }
         public IEnumerable<Burger> GetBurgers()
         {
-          return _db.Query<Burger>("SELECT * FROM burgers;");
+            return _db.Query<Burger>("SELECT * FROM burgers;");
         }
         public Burger GetById(int id)
         {
-            return _db.QueryFirstOrDefault<Burger>("SELECT * FROM burgers WHERE id = @id;", new {id});
+            return _db.QueryFirstOrDefault<Burger>("SELECT * FROM burgers WHERE id = @id;", new { id });
         }
         public Burger CreateBurger(Burger burger)
         {
- int id = _db.ExecuteScalar<int>(@"INSERT INTO burgers (name, description, price)
+            int id = _db.ExecuteScalar<int>(@"INSERT INTO burgers (name, description, price)
  VALUES (@Name, @Description, @Price); 
  SELECT LAST_INSERT_ID();", burger);
+            burger.Id = id;
+            return burger;
         }
         public Burger UpdateBurger(Burger burger)
         {
