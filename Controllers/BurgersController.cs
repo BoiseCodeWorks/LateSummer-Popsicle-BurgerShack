@@ -38,13 +38,10 @@ namespace BurgerShack.Controllers
         {
             try
             {
-                return Ok(_repo.GetById(id))
-                
+                return Ok(_repo.GetById(id));
             }
             catch (Exception e)
-            {
-                
-                
+            {   
                 return BadRequest(e.Message);
             }
         }
@@ -53,21 +50,42 @@ namespace BurgerShack.Controllers
         // STUB
         public ActionResult<Burger> Post([FromBody] Burger burger)
         {
-            return null;
+            try
+            {
+                return Ok(_repo.CreateBurger(burger));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpPut]
         // STUB 
         public ActionResult<Burger> Put([FromBody] Burger burger)
         {
-            return null;
+            try
+            {
+                return Ok(_repo.UpdateBurger(burger));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpDelete("{id}")]
         // STUB
         public ActionResult<string> Delete(int id)
         {
-            return null;
+            try
+            {
+                return Ok(_repo.RemoveBurger(id));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
     }
